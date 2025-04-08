@@ -1,4 +1,6 @@
 import sys  # Importing sys module for handling system-specific parameters and functions
+from src.logger import logging
+
 
 # Function to generate a detailed error message
 def error_message_detail(error, error_detail: sys):

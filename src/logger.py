@@ -30,11 +30,11 @@ logging.basicConfig(
 
 
 
-# if __name__ == "__main__":  # ✅ Corrected `__name__` check
-#     logging.info("Logging has started")
+if __name__ == "__main__":  # Corrected `__name__` check
+    logging.info("Logging has started")
     
-#     try:
-#         a = 1/0  # Intentional division by zero
-#     except Exception as e:
-#         logging.info("An exception occurred. Logging the error.")
-#         raise CustomException(str(e), sys)  # ✅ Corrected exception raising
+    try:
+        a = 1/0  # Intentional division by zero
+    except Exception as e:
+        logging.info("An exception occurred. Logging the error.")
+        raise CustomException(str(e), sys)  #  Corrected exception raising
