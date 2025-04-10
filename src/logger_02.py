@@ -1,9 +1,7 @@
 import logging
-import sys
 import os
 from datetime import datetime
 
-from src.exception import CustomException
 
 # Step 1: Generate a log file name with a timestamp
 # - The filename includes the current date and time in 'MM_DD_YYYY_HH_MM_SS' format.
@@ -11,7 +9,7 @@ LOG_FILE = f"{datetime.now().strftime('%m_%d_%Y_%H_%M_%S')}.log"
 
 # Step 2: Define the directory to store logs
 # - The logs directory is created in the current working directory.
-logs_path = os.path.join(os.getcwd(), "logs")  # Create 'logs' directory
+logs_path = os.path.join(os.getcwd(), "logs",LOG_FILE)  # Create 'logs' directory
 os.makedirs(logs_path, exist_ok=True)  # Ensure the directory exists, avoid errors if it already exists
 
 # Step 3: Define the full path for the log file
@@ -33,8 +31,8 @@ logging.basicConfig(
 if __name__ == "__main__":  # Corrected `__name__` check
     logging.info("Logging has started")
     
-    try:
-        a = 1/0  # Intentional division by zero
-    except Exception as e:
-        logging.info("An exception occurred. Logging the error.")
-        raise CustomException(str(e), sys)  #  Corrected exception raising
+# try:
+#         a = 1/0  # Intentional division by zero
+# except Exception as e:
+#         logging.info("An exception occurred. Logging the error.")
+#         raise Exception(f"An error occurred: {str(e)}")  # Raising a standard exception

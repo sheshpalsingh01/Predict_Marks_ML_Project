@@ -1,12 +1,11 @@
-import sys  # Importing sys module for handling system-specific parameters and functions
-from src.logger import logging
+import sys                                  # Importing sys module for handling system-specific parameters and functions
 
 
-# Function to generate a detailed error message
+
 def error_message_detail(error, error_detail: sys):
-    _, _, exc_tb = error_detail.exc_info()  # Extract execution info (type, value, traceback)
+    _, _, exc_tb = error_detail.exc_info()                   # Extract execution info (type, value, traceback)
     
-    file_name = exc_tb.tb_frame.f_code.co_filename  # Get the filename where the error occurred
+    file_name = exc_tb.tb_frame.f_code.co_filename           # Get the filename where the error occurred
     
     # Formatting the error message with script name, line number, and error details
     error_message = "Error occurred in python script name [{0}] line number [{1}] error message [{2}]".format(
@@ -25,3 +24,4 @@ class CustomException(Exception):
         
     def __str__(self):
         return self.error_message  # Return the detailed error message when printed
+
